@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'normal_items'
+require 'conjured_items'
 
 class GildedRose
   attr_reader :items
@@ -24,9 +25,9 @@ class GildedRose
       elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
         backstage_passes(item)
       elsif item.name == 'Conjured Mana Cake'
-        conjured_items(item)
+        ConjuredItems.new.update(item)
       elsif item.name == '+5 Dexterity Vest' || 'Elixir of the Mongoose'
-        NormalItems.new.normal_items(item)
+        NormalItems.new.update(item)
       end
     end
   end
@@ -59,21 +60,9 @@ class GildedRose
     end
   end
 
-  def conjured_items(item)
-    minus_day(item)
-    if (item.sell_in >= ZERO) && ((item.quality - DOUBLE) >= ZERO)
-      degrade_quality(item, DOUBLE)
-    elsif (item.quality - QUADRUPLE) >= ZERO
-      degrade_quality(item, QUADRUPLE)
-    end
-  end
 
   def minus_day(item)
     item.sell_in -= NORMAL
-  end
-
-  def degrade_quality(item, amount)
-    item.quality -= amount
   end
 
   def improve_quality(item, amount)
