@@ -1,7 +1,10 @@
 require 'item'
 
 describe Item do
-  it " " do
-    
+
+  describe "#" do
+    it " " do
+
+    end
   end
 end

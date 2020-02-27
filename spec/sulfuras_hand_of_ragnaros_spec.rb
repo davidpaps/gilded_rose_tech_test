@@ -3,7 +3,7 @@ require 'item'
 
 describe "Sulfuras, Hand of Ragnaros" do
 
-  it "Can have a quality of 80" do
+  it "Can have a quality of > 50" do
     items = [Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=2, quality=80)]
     subject = GildedRose.new(items)
     expect(subject.items[0].quality).to eq(80)
