@@ -25,5 +25,3 @@ describe 'Conjured Mana Cake' do
     expect(subject.items[0].quality).to eq(0)
   end
 end
-
-

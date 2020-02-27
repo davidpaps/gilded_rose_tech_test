@@ -9,7 +9,6 @@ class GildedRose
   TRIPLE = 3
   QUADRUPLE = 4
   MAX = 50
- 
 
   def initialize(items)
     @items = items
@@ -34,11 +33,11 @@ class GildedRose
   private
 
   def sulfuras_hand_of_ragnaros(item)
-    item.sell_in -= NORMAL
+    minus_day(item)
   end
 
   def normal_items(item)
-    item.sell_in -= NORMAL
+    minus_day(item)
     if item.sell_in >= ZERO && ((item.quality - NORMAL) >= ZERO)
       item.quality -= NORMAL
     elsif (item.quality - DOUBLE) >= ZERO
@@ -47,7 +46,7 @@ class GildedRose
   end
 
   def aged_brie(item)
-    item.sell_in -= NORMAL
+    minus_day(item)
     if item.quality < MAX && item.sell_in >= ZERO
       item.quality += NORMAL
     elsif (item.quality + DOUBLE) <= MAX && item.sell_in < ZERO
@@ -56,7 +55,7 @@ class GildedRose
   end
 
   def backstage_passes(item)
-    item.sell_in -= NORMAL
+    minus_day(item)
     if item.sell_in < ZERO
       item.quality = ZERO
     elsif (item.quality + NORMAL) <= MAX && item.sell_in > 10
@@ -69,11 +68,16 @@ class GildedRose
   end
 
   def conjured_items(item)
-    item.sell_in -= NORMAL
+    minus_day(item)
     if item.sell_in >= ZERO && ((item.quality - DOUBLE) >= ZERO)
       item.quality -= DOUBLE
     elsif (item.quality - QUADRUPLE) >= ZERO
       item.quality -= QUADRUPLE
     end
   end
+
+  def minus_day(item)
+    item.sell_in -= NORMAL
+  end
+
 end
