@@ -39,9 +39,9 @@ class GildedRose
   def normal_items(item)
     minus_day(item)
     if item.sell_in >= ZERO && ((item.quality - NORMAL) >= ZERO)
-      item.quality -= NORMAL
+      degrade_quality(item, NORMAL)
     elsif (item.quality - DOUBLE) >= ZERO
-      item.quality -= DOUBLE
+      degrade_quality(item, DOUBLE)
     end
   end
 
@@ -70,14 +70,18 @@ class GildedRose
   def conjured_items(item)
     minus_day(item)
     if item.sell_in >= ZERO && ((item.quality - DOUBLE) >= ZERO)
-      item.quality -= DOUBLE
+      degrade_quality(item, DOUBLE)
     elsif (item.quality - QUADRUPLE) >= ZERO
-      item.quality -= QUADRUPLE
+      degrade_quality(item, QUADRUPLE)
     end
   end
 
   def minus_day(item)
     item.sell_in -= NORMAL
+  end
+
+  def degrade_quality(item, amount)
+    item.quality -= amount
   end
 
 end
