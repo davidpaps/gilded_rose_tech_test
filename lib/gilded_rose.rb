@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'normal_items'
-require 'conjured_items'
-require 'backstage_passes'
-require 'aged_brie'
-require 'sulfuras'
+require_relative 'normal_items'
+require_relative 'conjured_items'
+require_relative 'backstage_passes'
+require_relative 'aged_brie'
+require_relative 'sulfuras'
 
 class GildedRose
   attr_reader :items
@@ -23,7 +23,7 @@ class GildedRose
         BackstagePasses.update(item)
       elsif item.name == 'Conjured Mana Cake'
         ConjuredItems.update(item)
-      elsif (item.name == '+5 Dexterity Vest') || (input.name == 'Elixir of the Mongoose')
+      elsif (item.name == '+5 Dexterity Vest') || (item.name == 'Elixir of the Mongoose')
         NormalItems.update(item)
       end
     end
