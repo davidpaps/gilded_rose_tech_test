@@ -38,7 +38,7 @@ class GildedRose
 
   def normal_items(item)
     minus_day(item)
-    if item.sell_in >= ZERO && ((item.quality - NORMAL) >= ZERO)
+    if (item.sell_in >= ZERO) && ((item.quality - NORMAL) >= ZERO)
       degrade_quality(item, NORMAL)
     elsif (item.quality - DOUBLE) >= ZERO
       degrade_quality(item, DOUBLE)
@@ -47,9 +47,9 @@ class GildedRose
 
   def aged_brie(item)
     minus_day(item)
-    if item.quality < MAX && item.sell_in >= ZERO
+    if (item.quality < MAX) && (item.sell_in >= ZERO)
       improve_quality(item, NORMAL)
-    elsif (item.quality + DOUBLE) <= MAX && item.sell_in < ZERO
+    elsif ((item.quality + DOUBLE) <= MAX) && (item.sell_in < ZERO)
       improve_quality(item, DOUBLE)
     end
   end
@@ -58,18 +58,18 @@ class GildedRose
     minus_day(item)
     if item.sell_in < ZERO
       item.quality = ZERO
-    elsif (item.quality + NORMAL) <= MAX && item.sell_in > 10
+    elsif ((item.quality + NORMAL) <= MAX) && (item.sell_in > 10)
       improve_quality(item, NORMAL)
-    elsif (item.quality + TRIPLE) <= MAX && item.sell_in < 6
+    elsif ((item.quality + TRIPLE) <= MAX) && (item.sell_in < 6)
       improve_quality(item, TRIPLE)
-    elsif (item.quality + DOUBLE) <= MAX && item.sell_in < 11
+    elsif ((item.quality + DOUBLE) <= MAX) && (item.sell_in < 11)
       improve_quality(item, DOUBLE)
     end
   end
 
   def conjured_items(item)
     minus_day(item)
-    if item.sell_in >= ZERO && ((item.quality - DOUBLE) >= ZERO)
+    if (item.sell_in >= ZERO) && ((item.quality - DOUBLE) >= ZERO)
       degrade_quality(item, DOUBLE)
     elsif (item.quality - QUADRUPLE) >= ZERO
       degrade_quality(item, QUADRUPLE)
@@ -87,5 +87,4 @@ class GildedRose
   def improve_quality(item, amount)
     item.quality += amount
   end
-
 end
