@@ -1,5 +1,6 @@
-class AgedBrie
+# frozen_string_literal: true
 
+class AgedBrie
   ZERO = 0
   NORMAL = 1
   DOUBLE = 2
@@ -21,5 +22,4 @@ class AgedBrie
   def improve_quality(item, amount)
     item.quality += amount
   end
-
 end

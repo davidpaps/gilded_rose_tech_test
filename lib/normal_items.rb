@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 
 class NormalItems
-
   ZERO = 0
   NORMAL = 1
   DOUBLE = 2
@@ -14,7 +14,7 @@ class NormalItems
     end
   end
 
-  private 
+  private
 
   def minus_day(item)
     item.sell_in -= NORMAL
@@ -23,5 +23,4 @@ class NormalItems
   def degrade_quality(item, amount)
     item.quality -= amount
   end
-
 end

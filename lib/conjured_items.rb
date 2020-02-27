@@ -1,5 +1,6 @@
-class ConjuredItems
+# frozen_string_literal: true
 
+class ConjuredItems
   ZERO = 0
   NORMAL = 1
   DOUBLE = 2
@@ -23,6 +24,4 @@ class ConjuredItems
   def degrade_quality(item, amount)
     item.quality -= amount
   end
-
-
 end

@@ -1,11 +1,12 @@
-class BackstagePasses
+# frozen_string_literal: true
 
+class BackstagePasses
   ZERO = 0
   NORMAL = 1
   DOUBLE = 2
   TRIPLE = 3
   MAX = 50
-  
+
   def update(item)
     minus_day(item)
     if item.sell_in < ZERO
@@ -28,5 +29,4 @@ class BackstagePasses
   def improve_quality(item, amount)
     item.quality += amount
   end
-
 end

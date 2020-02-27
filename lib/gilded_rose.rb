@@ -1,14 +1,14 @@
 # frozen_string_literal: true
+
 require 'normal_items'
 require 'conjured_items'
 require 'backstage_passes'
 require 'aged_brie'
+require 'sulfuras'
 
 class GildedRose
   attr_reader :items
 
-  NORMAL = 1
- 
   def initialize(items)
     @items = items
   end
@@ -16,7 +16,7 @@ class GildedRose
   def update_quality
     items.each do |item|
       if item.name == 'Sulfuras, Hand of Ragnaros'
-        sulfuras_hand_of_ragnaros(item)
+        Sulfuras.new.update(item)
       elsif item.name == 'Aged Brie'
         AgedBrie.new.update(item)
       elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
@@ -28,16 +28,4 @@ class GildedRose
       end
     end
   end
-
-  private
-
-  def sulfuras_hand_of_ragnaros(item)
-    minus_day(item)
-  end
-
- 
-  def minus_day(item)
-    item.sell_in -= NORMAL
-  end
-
 end
