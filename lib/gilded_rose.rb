@@ -3,12 +3,18 @@
 class GildedRose
   attr_reader :items
 
+  ZERO = 0
+  NORMAL = 1
+  DOUBLE = 2
+  TRIPLE = 3
+  MAX = 50
+ 
+
   def initialize(items)
     @items = items
   end
 
   def update_quality
-
     items.each do |item|
       if item.name == 'Sulfuras, Hand of Ragnaros'
         sulfuras_hand_of_ragnaros(item)
@@ -25,38 +31,37 @@ class GildedRose
   private
 
   def sulfuras_hand_of_ragnaros(item)
-    item.sell_in -= 1
+    item.sell_in -= NORMAL
   end
 
   def dexterity_vest_elixir_of_the_mongoose(item)
-    item.sell_in -= 1 
-    if item.sell_in >= 0 && ((item.quality - 1) >= 0)
-      item.quality -= 1
-    elsif ((item.quality - 2) >= 0) 
-        item.quality -= 2
+    item.sell_in -= NORMAL
+    if item.sell_in >= ZERO && ((item.quality - NORMAL) >= ZERO)
+      item.quality -= NORMAL
+    elsif (item.quality - DOUBLE) >= ZERO
+      item.quality -= DOUBLE
     end
   end
 
   def aged_brie(item)
-    item.sell_in -= 1
-    if item.quality < 50 && item.sell_in >= 0 
-      item.quality += 1
-    elsif (item.quality + 2) <= 50 && item.sell_in < 0
-      item.quality += 2
+    item.sell_in -= NORMAL
+    if item.quality < MAX && item.sell_in >= ZERO
+      item.quality += NORMAL
+    elsif (item.quality + DOUBLE) <= MAX && item.sell_in < ZERO
+      item.quality += DOUBLE
     end
   end
 
   def backstage_passes(item)
-    item.sell_in -= 1
-    if item.sell_in < 0
-      item.quality = 0
-    elsif (item.quality + 1) <= 50 && item.sell_in > 10 
-      item.quality += 1
-    elsif (item.quality + 3) <= 50 && item.sell_in <6
-      item.quality += 3
-    elsif (item.quality + 2) <= 50 && item.sell_in < 11
-      item.quality += 2
+    item.sell_in -= NORMAL
+    if item.sell_in < ZERO
+      item.quality = ZERO
+    elsif (item.quality + NORMAL) <= MAX && item.sell_in > 10
+      item.quality += NORMAL
+    elsif (item.quality + TRIPLE) <= MAX && item.sell_in < 6
+      item.quality += TRIPLE
+    elsif (item.quality + DOUBLE) <= MAX && item.sell_in < 11
+      item.quality += DOUBLE
     end
   end
-
 end
