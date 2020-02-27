@@ -15,8 +15,6 @@ class AgedBrie
     end
   end
 
-  private_class_method
-
   def self.minus_day(item)
     item.sell_in -= NORMAL
   end

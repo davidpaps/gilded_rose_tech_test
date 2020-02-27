@@ -23,7 +23,7 @@ class GildedRose
         BackstagePasses.update(item)
       elsif item.name == 'Conjured Mana Cake'
         ConjuredItems.update(item)
-      elsif item.name == '+5 Dexterity Vest' || 'Elixir of the Mongoose'
+      elsif (item.name == '+5 Dexterity Vest') || (input.name == 'Elixir of the Mongoose')
         NormalItems.update(item)
       end
     end
