@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'normal_items'
 
 class GildedRose
   attr_reader :items
@@ -25,7 +26,7 @@ class GildedRose
       elsif item.name == 'Conjured Mana Cake'
         conjured_items(item)
       elsif item.name == '+5 Dexterity Vest' || 'Elixir of the Mongoose'
-        normal_items(item)
+        NormalItems.new.normal_items(item)
       end
     end
   end
@@ -34,15 +35,6 @@ class GildedRose
 
   def sulfuras_hand_of_ragnaros(item)
     minus_day(item)
-  end
-
-  def normal_items(item)
-    minus_day(item)
-    if (item.sell_in >= ZERO) && ((item.quality - NORMAL) >= ZERO)
-      degrade_quality(item, NORMAL)
-    elsif (item.quality - DOUBLE) >= ZERO
-      degrade_quality(item, DOUBLE)
-    end
   end
 
   def aged_brie(item)
