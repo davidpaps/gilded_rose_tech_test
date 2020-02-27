@@ -5,7 +5,7 @@ class NormalItems
   NORMAL = 1
   DOUBLE = 2
 
-  def update(item)
+  def self.update(item)
     minus_day(item)
     if (item.sell_in >= ZERO) && ((item.quality - NORMAL) >= ZERO)
       degrade_quality(item, NORMAL)
@@ -14,13 +14,13 @@ class NormalItems
     end
   end
 
-  private
+  private_class_method
 
-  def minus_day(item)
+  def self.minus_day(item)
     item.sell_in -= NORMAL
   end
 
-  def degrade_quality(item, amount)
+  def self.degrade_quality(item, amount)
     item.quality -= amount
   end
 end

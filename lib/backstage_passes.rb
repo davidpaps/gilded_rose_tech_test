@@ -7,7 +7,7 @@ class BackstagePasses
   TRIPLE = 3
   MAX = 50
 
-  def update(item)
+  def self.update(item)
     minus_day(item)
     if item.sell_in < ZERO
       item.quality = ZERO
@@ -20,13 +20,13 @@ class BackstagePasses
     end
   end
 
-  private
+  private_class_method
 
-  def minus_day(item)
+  def self.minus_day(item)
     item.sell_in -= NORMAL
   end
 
-  def improve_quality(item, amount)
+  def self.improve_quality(item, amount)
     item.quality += amount
   end
 end

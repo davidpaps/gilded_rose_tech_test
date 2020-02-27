@@ -6,7 +6,7 @@ class ConjuredItems
   DOUBLE = 2
   QUADRUPLE = 4
 
-  def update(item)
+  def self.update(item)
     minus_day(item)
     if (item.sell_in >= ZERO) && ((item.quality - DOUBLE) >= ZERO)
       degrade_quality(item, DOUBLE)
@@ -15,13 +15,13 @@ class ConjuredItems
     end
   end
 
-  private
+  private_class_method
 
-  def minus_day(item)
+  def self.minus_day(item)
     item.sell_in -= NORMAL
   end
 
-  def degrade_quality(item, amount)
+  def self.degrade_quality(item, amount)
     item.quality -= amount
   end
 end

@@ -6,7 +6,7 @@ class AgedBrie
   DOUBLE = 2
   MAX = 50
 
-  def update(item)
+  def self.update(item)
     minus_day(item)
     if (item.quality < MAX) && (item.sell_in >= ZERO)
       improve_quality(item, NORMAL)
@@ -15,11 +15,13 @@ class AgedBrie
     end
   end
 
-  def minus_day(item)
+  private_class_method
+
+  def self.minus_day(item)
     item.sell_in -= NORMAL
   end
 
-  def improve_quality(item, amount)
+  def self.improve_quality(item, amount)
     item.quality += amount
   end
 end
