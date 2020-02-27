@@ -48,9 +48,9 @@ class GildedRose
   def aged_brie(item)
     minus_day(item)
     if item.quality < MAX && item.sell_in >= ZERO
-      item.quality += NORMAL
+      improve_quality(item, NORMAL)
     elsif (item.quality + DOUBLE) <= MAX && item.sell_in < ZERO
-      item.quality += DOUBLE
+      improve_quality(item, DOUBLE)
     end
   end
 
@@ -59,11 +59,11 @@ class GildedRose
     if item.sell_in < ZERO
       item.quality = ZERO
     elsif (item.quality + NORMAL) <= MAX && item.sell_in > 10
-      item.quality += NORMAL
+      improve_quality(item, NORMAL)
     elsif (item.quality + TRIPLE) <= MAX && item.sell_in < 6
-      item.quality += TRIPLE
+      improve_quality(item, TRIPLE)
     elsif (item.quality + DOUBLE) <= MAX && item.sell_in < 11
-      item.quality += DOUBLE
+      improve_quality(item, DOUBLE)
     end
   end
 
@@ -82,6 +82,10 @@ class GildedRose
 
   def degrade_quality(item, amount)
     item.quality -= amount
+  end
+
+  def improve_quality(item, amount)
+    item.quality += amount
   end
 
 end
