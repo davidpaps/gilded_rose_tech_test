@@ -7,6 +7,7 @@ class GildedRose
   NORMAL = 1
   DOUBLE = 2
   TRIPLE = 3
+  QUADRUPLE = 4
   MAX = 50
  
 
@@ -22,8 +23,10 @@ class GildedRose
         aged_brie(item)
       elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
         backstage_passes(item)
+      elsif item.name == 'Conjured Mana Cake'
+        conjured_items(item)
       elsif item.name == '+5 Dexterity Vest' || 'Elixir of the Mongoose'
-        dexterity_vest_elixir_of_the_mongoose(item)
+        normal_items(item)
       end
     end
   end
@@ -34,7 +37,7 @@ class GildedRose
     item.sell_in -= NORMAL
   end
 
-  def dexterity_vest_elixir_of_the_mongoose(item)
+  def normal_items(item)
     item.sell_in -= NORMAL
     if item.sell_in >= ZERO && ((item.quality - NORMAL) >= ZERO)
       item.quality -= NORMAL
@@ -62,6 +65,15 @@ class GildedRose
       item.quality += TRIPLE
     elsif (item.quality + DOUBLE) <= MAX && item.sell_in < 11
       item.quality += DOUBLE
+    end
+  end
+
+  def conjured_items(item)
+    item.sell_in -= NORMAL
+    if item.sell_in >= ZERO && ((item.quality - DOUBLE) >= ZERO)
+      item.quality -= DOUBLE
+    elsif (item.quality - QUADRUPLE) >= ZERO
+      item.quality -= QUADRUPLE
     end
   end
 end
