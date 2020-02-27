@@ -4,3 +4,4 @@
 ruby
 coverage
 Gemfile.lock
+.rspec
