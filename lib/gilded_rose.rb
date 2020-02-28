@@ -15,15 +15,16 @@ class GildedRose
 
   def update_quality
     items.each do |item|
-      if item.name == 'Sulfuras, Hand of Ragnaros'
+      case item.name
+      when 'Sulfuras, Hand of Ragnaros'
         Sulfuras.update(item)
-      elsif item.name == 'Aged Brie'
+      when 'Aged Brie'
         AgedBrie.update(item)
-      elsif item.name == 'Backstage passes to a TAFKAL80ETC concert'
+      when 'Backstage passes to a TAFKAL80ETC concert'
         BackstagePasses.update(item)
-      elsif item.name == 'Conjured Mana Cake'
+      when 'Conjured Mana Cake'
         ConjuredItems.update(item)
-      elsif (item.name == '+5 Dexterity Vest') || (item.name == 'Elixir of the Mongoose')
+      else '+5 Dexterity Vest' || 'Elixir of the Mongoose'
         NormalItems.update(item)
       end
     end

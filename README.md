@@ -50,7 +50,7 @@ As a final refactor step, I then made a class for each item, to apply the SRP ru
 
 __Describe how to run the app and tests:__
 
-In order to run this code, one can clone the repo, visit the directory, run a repl, and then enter the following commands:
+In order to run this code, one can clone the repo, visit the directory in the terminal, run a repl, and then enter the following commands:
 
 ```
 require './lib/gilded_rose'
@@ -61,12 +61,12 @@ gilded_rose.update_quality
 
 ```
 Item Name can be:
-+5 Dexterity Vest
-Aged Brie
-Backstage Passes to a TAFKAL80ETC concert
-Conjured Mana Cake
-Elixir of the Mongoose
-Sulfuras, Hand of Ragnaros
+- +5 Dexterity Vest
+- Aged Brie
+- Backstage Passes to a TAFKAL80ETC concert
+- Conjured Mana Cake
+- Elixir of the Mongoose
+- Sulfuras, Hand of Ragnaros
 ```
 
 The item will then degrade/improve in quality as per each induvidual requirement.
