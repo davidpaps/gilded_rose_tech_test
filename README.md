@@ -1,6 +1,18 @@
 # Gilded Rose Refactoring Kata
 
-This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). 
+I completed this classic kata as a simulation tech test to enhance my refactoring skills. Since starting to code, I have always found Refactoring to take a little more time than other concepts, this kata gave me a good framework to refactor by and hone this skill. 
+
+## Approach and Structure:
+
+For this kata i first played around with the legacy code in irb. I then established the conditions to which each item were bound to. I then wrote extensive feature tests to cover all the scenarios and edge cases of the reqirement. Once i had good test coverage 0and passing tets, i then slowly refctored each item into its own method., I then, one at a time, managed to substitue in the code, whilst commenting out those portions of the legacy code. I did this until each item had a single method to update, and the update_quality method in the GildedRose class had a simple loop iterating over the items, which would call on the corrosponding ethods (which were also refactored out to make DRY).
+
+As a final refactor step, I then made a class for each item, to apply the SRP rule and extracted each item to be called on via it's class method. All of the above steps were completed whilst keeping the tests green and passing.
+
+The commits of this project show the step by step nature that i followed. 
+
+---
+
+This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is on GitHub [here](https://github.com/NotMyself/GildedRose). 
 
 
 __Specification:__
@@ -41,16 +53,15 @@ Just for clarification, an item can never have its Quality increase above 50, ho
 legendary item and as such its Quality is 80 and it never alters.
 
 
-__Describe your Approach and Structure:__
+## How to Run
 
-For this kata i first played around with the legacy code in irb. I then established the conditions to which each item were bound to. I then wrote extensive feature tests to cover all the scenarios and edge cases of the reqirement. Once i had good test coverage 0and passing tets, i then slowly refctored each item into its own method., I then, one at a time, managed to substitue in the code, whilst commenting out those portions of the legacy code. I did this until each item had a single method to update, and the update_quality method in the GildedRose class had a simple loop iterating over the items, which would call on the corrosponding ethods (which were also refactored out to make DRY).
+In order to run this code, clone this repo, visit the directory, and in the command line type:
 
-As a final refactor step, I then made a class for each item, to apply the SRP rule and extracted each item to be called on via it's class method. All of the above steps were completed whilst keeping the tests green and passing.
+```
+irb
+```
 
-
-__Describe how to run the app and tests:__
-
-In order to run this code, one can clone the repo, visit the directory in the terminal, run a repl, and then enter the following commands:
+This will start a Ruby REPL. Then enter the following commands in irb:
 
 ```
 require './lib/gilded_rose'
@@ -59,8 +70,10 @@ gilded_rose = GildedRose.new([Item.new("Item Name", 10, 10)])
 gilded_rose.update_quality
 ```
 
+
+__Item Name can be:__
+
 ```
-Item Name can be:
 - +5 Dexterity Vest
 - Aged Brie
 - Backstage Passes to a TAFKAL80ETC concert
@@ -69,9 +82,12 @@ Item Name can be:
 - Sulfuras, Hand of Ragnaros
 ```
 
-The item will then degrade/improve in quality as per each induvidual requirement.
+The item will then degrade/improve in 'quality' as per each individual requirement, as will the 'sell in' date.
 
-In order to run the testing suite, RSPEC, open up the project directory in the terminal, and type in 'rspec'. This will display the tests, and test coverage (22 tests - 100% coverage).
+In order to run the testing suite RSpec (22 tests - 100% coverage), open up the project directory in the terminal, and type in the command line type:
 
+```
+rspec
+```
 
 
