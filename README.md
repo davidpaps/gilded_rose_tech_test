@@ -2,20 +2,9 @@
 
 I completed this classic kata as a simulation tech test to enhance my refactoring skills. Since starting to code, I have always found Refactoring to take a little more time than other concepts, this kata gave me a good framework to refactor by and hone this skill. 
 
-## Approach and Structure:
-
-For this kata i first played around with the legacy code in irb. I then established the conditions to which each item were bound to. I then wrote extensive feature tests to cover all the scenarios and edge cases of the reqirement. Once i had good test coverage 0and passing tets, i then slowly refctored each item into its own method., I then, one at a time, managed to substitue in the code, whilst commenting out those portions of the legacy code. I did this until each item had a single method to update, and the update_quality method in the GildedRose class had a simple loop iterating over the items, which would call on the corrosponding ethods (which were also refactored out to make DRY).
-
-As a final refactor step, I then made a class for each item, to apply the SRP rule and extracted each item to be called on via it's class method. All of the above steps were completed whilst keeping the tests green and passing.
-
-The commits of this project show the step by step nature that i followed. 
-
 ---
 
-This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is on GitHub [here](https://github.com/NotMyself/GildedRose). 
-
-
-__Specification:__
+## Requirements
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
 prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
@@ -52,6 +41,21 @@ for you).
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
 legendary item and as such its Quality is 80 and it never alters.
 
+---
+
+## Approach and Structure:
+
+For this kata i first played around with the legacy code in irb. I then established the conditions to which each item were bound to. I then wrote extensive feature tests to cover all the scenarios and edge cases of the reqirement. Once i had good test coverage 0and passing tets, i then slowly refctored each item into its own method., I then, one at a time, managed to substitue in the code, whilst commenting out those portions of the legacy code. I did this until each item had a single method to update, and the update_quality method in the GildedRose class had a simple loop iterating over the items, which would call on the corrosponding ethods (which were also refactored out to make DRY).
+
+As a final refactor step, I then made a class for each item, to apply the SRP rule and extracted each item to be called on via it's class method. All of the above steps were completed whilst keeping the tests green and passing.
+
+The commits of this project show the step by step nature that i followed. 
+
+---
+
+This Kata was originally created by [*Terry Hughes*](http://twitter.com/TerryHughes). It can be found on [*GitHub*](https://github.com/NotMyself/GildedRose).
+
+---
 
 ## How to Run
 
@@ -84,10 +88,13 @@ __Item Name can be:__
 
 The item will then degrade/improve in 'quality' as per each individual requirement, as will the 'sell in' date.
 
-In order to run the testing suite RSpec (22 tests - 100% coverage), open up the project directory in the terminal, and type in the command line type:
+__Testing:__
+
+In order to run the testing suite (RSpec) int he command line type:
 
 ```
 rspec
 ```
 
+This will show 22 tests with 100% coverage.
 
